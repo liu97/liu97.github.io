@@ -14,15 +14,17 @@
 <meta property="og:url" content="http://yoursite.com/2017/05/11/wamp简单使用-本地服务器/index.html">
 <meta property="og:site_name" content="刘传富">
 <meta property="og:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;wamp是Windows下的Apache+Mysql/MariaDB+Perl/PHP/Python，一组常用来搭建动态网站或者服务器的开源软件，本身都是各自独立的程序，但是因为常被放在一起使用，拥有了越来越高的兼容度，共同组成了一个强大的Web应用程序平台。">
-<meta property="og:image" content="http://yoursite.com/img/wamp1.png">
-<meta property="og:image" content="http://yoursite.com/img/wamp2.png">
-<meta property="og:image" content="http://yoursite.com/img/wamp3.png">
-<meta property="og:image" content="http://yoursite.com/img/wamp4.png">
-<meta property="og:updated_time" content="2017-05-11T17:05:00.745Z">
+<meta property="og:image" content="http://yoursite.com/img/wamp/wamp1.png">
+<meta property="og:image" content="http://yoursite.com/img/wamp/wamp2.png">
+<meta property="og:image" content="http://yoursite.com/img/wamp/wamp3.png">
+<meta property="og:image" content="http://yoursite.com/img/wamp/wamp4.png">
+<meta property="og:image" content="http://yoursite.com/img/wamp/wamp5.png">
+<meta property="og:image" content="http://yoursite.com/img/wamp/wamp6.png">
+<meta property="og:updated_time" content="2017-05-12T09:21:20.848Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="wamp简单使用-本地服务器">
 <meta name="twitter:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;wamp是Windows下的Apache+Mysql/MariaDB+Perl/PHP/Python，一组常用来搭建动态网站或者服务器的开源软件，本身都是各自独立的程序，但是因为常被放在一起使用，拥有了越来越高的兼容度，共同组成了一个强大的Web应用程序平台。">
-<meta name="twitter:image" content="http://yoursite.com/img/wamp1.png">
+<meta name="twitter:image" content="http://yoursite.com/img/wamp/wamp1.png">
   
     <link rel="alternative" href="/atom.xml" title="刘传富" type="application/atom+xml">
   
@@ -185,11 +187,11 @@
 <li>用编辑器打开D:\wamp\bin\apache\apache2.4.9\conf\httpd.conf（软件wamp目录下）</li>
 <li>ctrl+f查找documentroot，将“D:/wamp/www”改成想要当网站根目录的路径（类似“F:/webpage/wamp/”）</li>
 </ul>
-<p><img src="/img/wamp1.png" alt="documentroot"></p>
+<p><img src="/img/wamp/wamp1.png" alt="documentroot"></p>
 <ul>
-<li>往下找到 <directory>将路径改成上面一样</directory></li>
+<li>往下找到 &lt; directory &gt; 将路径改成上面一样</li>
 </ul>
-<p><img src="/img/wamp2.png" alt="documentroot"></p>
+<p><img src="/img/wamp/wamp2.png" alt="documentroot"></p>
 <blockquote>
 <p>更改控制面板网站根目录</p>
 </blockquote>
@@ -197,7 +199,7 @@
 <li>用编辑器打开D:\wamp\wampmanager.ini（软件wamp目录下）</li>
 <li>ctrl+f查找menu.left，将FileName改成刚刚设置的根目录路径(注意看清是哪一行的FileName)</li>
 </ul>
-<p><img src="/img/wamp3.png" alt="documentroot"></p>
+<p><img src="/img/wamp/wamp3.png" alt="documentroot"></p>
 <ul>
 <li>用编辑器打开D:\wamp\wampmanager.tpl（软件wamp目录下）同上一步操作</li>
 </ul>
@@ -208,7 +210,7 @@
 <li>用编辑器打开D:\wamp\bin\apache\apache2.4.9\conf\httpd.conf（软件wamp目录下）</li>
 <li>ctrl+f查找Directory，将Deny from all改成Allow from all,表示允许</li>
 </ul>
-<p><img src="/img/wamp4.png" alt="documentroot"></p>
+<p><img src="/img/wamp/wamp4.png" alt="documentroot"></p>
 <blockquote>
 <p>自定义端口号</p>
 </blockquote>
@@ -216,8 +218,12 @@
 <ul>
 <li>用编辑器打开D:\wamp\bin\apache\apache2.4.9\conf\httpd.conf（软件wamp目录下）</li>
 <li>ctrl+f查找listen，后面的数字就是端口号，可以改成自己想要的规范端口号</li>
+</ul>
+<p><img src="/img/wamp/wamp5.png" alt="documentroot"></p>
+<ul>
 <li>ctrl+f查找ServerName localhost,将后面端口号改成刚刚修改后的端口号</li>
 </ul>
+<p><img src="/img/wamp/wamp6.png" alt="documentroot"></p>
 <blockquote>
 <p>友情提示</p>
 </blockquote>
@@ -241,7 +247,7 @@
                   <div class="reward-box">
                     
                     <div class="reward-box-item">
-                      <img class="reward-img" src="/img/zhifubao.png">
+                      <img class="reward-img" src="/img/zhifubao.jpg">
                       <span class="reward-type">支付宝</span>
                     </div>
                     
