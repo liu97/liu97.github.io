@@ -20,6 +20,10 @@ tags: [wamp]
 
 ![documentroot](/img/wamp/wamp2.png)
 
+- 修改httpd-vhosts.conf文件，文件路径：E:\wamp\bin\apache\apache2.4.23\conf\extra\httpd-vhosts.conf
+
+![documentroot](/img/wamp/wamp7.png)
+
 > 更改控制面板网站根目录
 
 - 用编辑器打开D:\wamp\wampmanager.ini（软件wamp目录下）
