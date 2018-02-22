@@ -113,3 +113,8 @@ Node和Git都安装好后，可执行如下命令安装hexo：
 
 到这里主题的更换就好了，启动本地预览一下，可以的话就同步到Github上面吧。
 
+### **友情链接**
+
+[这篇写的比较好](http://crazymilk.github.io/2015/12/28/GitHub-Pages-Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/)
+
+
