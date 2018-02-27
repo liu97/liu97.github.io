@@ -3,7 +3,7 @@ title: js面向对象笔记
 categories: Blogs
 tags: [js]
 ---
-
+在学习js面向对象时，每次学了不运用，不过多久就会忘，所以今天跟着阮一峰老师的理解记下笔记，以下为学习时自己的理解。<!--more-->
 ## 1.构造函数的实例对象的constructor指向构造函数	
 ```javascript
 function Cat(name,color){
