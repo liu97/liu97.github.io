@@ -4,15 +4,15 @@ date: 2017-05-04 09:44:12
 categories: Blogs
 tags: [livereload]
 ---
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在上次搭建博客的时候在知乎上找到一个神器livereload。宣传一下Sublime text3是非常好用的编辑器。配合LiveReload插件可以在浏览器中实时预览，也就是说写完html/css/js等不用再到浏览器里按F5啦，在Ctrl+S时浏览器会自动刷新，是不是想想都很爽，多屏的同学更爽了~~~<!--more-->
+在上次搭建博客的时候在知乎上找到一个神器livereload。宣传一下Sublime text3是非常好用的编辑器。配合LiveReload插件可以在浏览器中实时预览，也就是说写完html/css/js等不用再到浏览器里按F5啦，在Ctrl+S时浏览器会自动刷新，是不是想想都很爽，多屏的同学更爽了~~~<!--more-->
 
 ----------
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;上面只是其中便利之一，在用hexo写博客的时候还有一个非常便利的好处就是，在本地预览博客的时候只要运行一次hexo s -g启动本地服务器，之后就不用管它了，直接写完md，转换浏览器查看效果就行，相比以前修改一次md运行一下ctrl+c在运行一次hexo s -g是不是爽多了。
+上面只是其中便利之一，在用hexo写博客的时候还有一个非常便利的好处就是，在本地预览博客的时候只要运行一次hexo s -g启动本地服务器，之后就不用管它了，直接写完md，转换浏览器查看效果就行，相比以前修改一次md运行一下ctrl+c在运行一次hexo s -g是不是爽多了。
 
 -----------
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;当然我现在只发现了这两点好处，下次发现新大陆会再更新啦！下面开始进入正题。
+当然我现在只发现了这两点好处，下次发现新大陆会再更新啦！下面开始进入正题。
 ## LiveReload的安装
 
 > 1、安装浏览器插件browser extensions
