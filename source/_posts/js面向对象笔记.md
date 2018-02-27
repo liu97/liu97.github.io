@@ -44,7 +44,7 @@ hasOwnProperty() 验证是实例上的属性还是prototype上的属性
 console.log(cat1.hasOwnProperty("type")) // true
 console.log(cat2.hasOwnProperty("type")) // false
 
-in运算符 //验证某个实例是否含有某个属性，不管是不是本地属性
+in运算符 验证某个实例是否含有某个属性，不管是不是本地属性
 console.log("type" in cat1) // true
 console.log("type" in cat2) // true
 console.log("haha" in cat1) // false
