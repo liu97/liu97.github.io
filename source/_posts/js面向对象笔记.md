@@ -55,6 +55,7 @@ console.log("haha" in cat1) // false
 
 **一、构造函数绑定**
 用call或者apply的方法将父对象的构造函数绑定在子对象的构造函数中。*这种方法只能继承构造器里的属性和方法*
+```javascript
 function Animal(){
 	this.species = "动物";
 }
@@ -63,8 +64,7 @@ function Cat(name,color){
 	this.name=name;
 	this.color=color;
 }
-
-
+```
 
 **二、prototype修改**
 将子对象的构造函数的prototype直接指向父对象的构造函数的实例。由于直接修改了prototype指向的对象，导致prototype的constructor的值变为父对象的构造函数，每当访问实例或者prototype的constructor属性，都会调用prototype对象的constructor属性，这样当然会破坏constructor的原本设计初衷，于是也要讲prototype的constructor重新指向子对象的构造函数。*这种方法能继承构造器里的属性和方法，也能继承原型链上的属性和方法*
