@@ -4,7 +4,8 @@ categories: Blogs
 tags: [js]
 ---
 在学习js面向对象时，每次学了不运用，不过多久就会忘，所以今天跟着阮一峰老师的理解记下笔记，以下为学习时自己的理解。<!--more-->
-### 1.构造函数的实例对象的constructor指向构造函数	
+### 1.封装
+**一、构造函数的实例对象的constructor指向构造函数	**
 ```javascript
 function Cat(name,color){
 	this.name=name;
@@ -14,9 +15,7 @@ let cat1 = new Cat('tom' , 'orange');
 let cat2 = new Cat('jack' , 'black');
 console.log(cat1.constructor == Cat) // true
 ```
-
-### 2.构造函数有prototype属性，指向一个对象，这个对象的所有属性和方法都会被构造函数的实例继承
-
+**二、构造函数有prototype属性，指向一个对象，这个对象的所有属性和方法都会被构造函数的实例继承**
 ```javascript
 Cat.prototype.type = "猫科动物";
 Cat.prototype.action = ()=> console.log("吃老鼠");
@@ -35,7 +34,7 @@ console.log(cat2.type) // "猫科动物"
 console.log(Cat.prototype.type) // "猫科动物"
 ```
 
-### 3.几个实用的验证方法
+**三、几个实用的验证方法**
 
 ```javascript
 isPrototypeOf() 验证实例与prototype之间的关系
@@ -51,7 +50,7 @@ console.log("type" in cat2) // true
 console.log("haha" in cat1) // false
 ```
 
-### 4.构造函数的继承
+### 2.构造函数的继承
 
 **一、构造函数绑定**
 用call或者apply的方法将父对象的构造函数绑定在子对象的构造函数中。*这种方法只能继承构造器里的属性和方法*
