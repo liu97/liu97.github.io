@@ -168,7 +168,7 @@ console.log(Chinese.birthPlaces); //北京, 上海, 香港, 厦门
 ```
 所以，extendCopy()只是拷贝基本类型的数据，我们把这种拷贝叫做"浅拷贝"。这是早期jQuery实现继承的方式。
 
-**三、浅拷贝**
+**三、深拷贝**
 所谓"深拷贝"，就是能够实现真正意义上的数组和对象的拷贝。它的实现并不难，只要递归调用"浅拷贝"就行了。
 ```javascript
 function deepCopy(p, c) {
