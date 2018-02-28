@@ -53,7 +53,7 @@ console.log("haha" in cat1) // false
 
 ### 4.构造函数的继承
 
-**一、构造函数绑定***
+**一、构造函数绑定**
 用call或者apply的方法将父对象的构造函数绑定在子对象的构造函数中。*这种方法只能继承构造器里的属性和方法*
 ```javascript
 function Animal(){
