@@ -66,16 +66,18 @@ function Cat(name,color){
 }
 ``` 
 
+
+
 **二、prototype修改**
 将子对象的构造函数的prototype直接指向父对象的构造函数的实例。由于直接修改了prototype指向的对象，导致prototype的constructor的值变为父对象的构造函数，每当访问实例或者prototype的constructor属性，都会调用prototype对象的constructor属性，这样当然会破坏constructor的原本设计初衷，于是也要讲prototype的constructor重新指向子对象的构造函数。*这种方法能继承构造器里的属性和方法，也能继承原型链上的属性和方法*
+
 ```javascript
 Cat.prototype = new Animal();
 let cat3 = new Cat("aimi","white");
 console.log(Cat.prototype.__proto__ == Animal.prototype) // true
 console.log(Cat.prototype.constructor == Animal) // true
 console.log(cat3.constructor == Animal) // true
-console.log(cat3.__proto == Cat.prototype) // true
-
+console.log(cat3.__proto__ == Cat.prototype) // true
 Cat.prototype.constructor = Cat; //修改prototype.constructor
 let cat3 = new Cat("aimi","white");
 console.log(cat4.constructor == Cat) // true
