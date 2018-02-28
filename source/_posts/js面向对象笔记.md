@@ -4,7 +4,7 @@ categories: Blogs
 tags: [js]
 ---
 在学习js面向对象时，每次学了不运用，不过多久就会忘，所以今天跟着阮一峰老师的理解记下笔记，以下为学习时自己的理解。<!--more-->
-### 1.封装
+## 1.封装
 **一、构造函数的实例对象的constructor指向构造函数	**
 ```javascript
 function Cat(name,color){
@@ -50,7 +50,7 @@ console.log("type" in cat2) // true
 console.log("haha" in cat1) // false
 ```
 
-### 2.构造函数的继承
+## 2.构造函数的继承
 
 **一、构造函数绑定**
 用call或者apply的方法将父对象的构造函数绑定在子对象的构造函数中。*这种方法只能继承构造器里的属性和方法*
@@ -128,3 +128,68 @@ function extend2(Child, Parent) {
 　　c.uber = p;
 }
 ```
+
+## 3.非构造函数的继承
+
+**一、object()方法**
+这个object()函数，其实只做一件事，就是把子对象的prototype属性，指向父对象，从而使得子对象与父对象连在一起。*类似第二节里《四、利用空对象作为中介》*
+```javascript
+let Chinese = {
+　　nation:'中国'
+};
+function object(parent){
+	function F(){};
+	F.prototype = parent;
+	return new F();
+}
+let Doctor = object(Chinese);
+Doctor.career = '医生';
+```
+
+**二、浅拷贝**
+除了使用"prototype链"以外，还有另一种思路：把父对象的属性，全部拷贝给子对象，也能实现继承。*类似第二节里《五、拷贝继承》*
+```javascript
+function extendCopy(parent){
+	var c = {};
+	for(let i in parent){
+		c.i = parent.i;
+	} 
+	c.uber = parent;
+	return c;
+}
+```
+但是，这样的拷贝有一个问题。那就是，如果父对象的属性等于数组或另一个对象，那么实际上，子对象获得的只是一个内存地址，而不是真正拷贝，因此存在父对象被篡改的可能。
+```javascript
+Chinese.birthPlaces = ['北京','上海','香港'];
+var Doctor = extendCopy(Chinese);
+Doctor.birthPlaces.push('厦门');
+console.log(Doctor.birthPlaces); //北京, 上海, 香港, 厦门
+console.log(Chinese.birthPlaces); //北京, 上海, 香港, 厦门
+```
+所以，extendCopy()只是拷贝基本类型的数据，我们把这种拷贝叫做"浅拷贝"。这是早期jQuery实现继承的方式。
+
+**三、浅拷贝**
+所谓"深拷贝"，就是能够实现真正意义上的数组和对象的拷贝。它的实现并不难，只要递归调用"浅拷贝"就行了。
+```javascript
+function deepCopy(p, c) {
+　　var c = c || {};
+　　for (var i in p) {
+　　　　if (typeof p[i] === 'object') {
+　　　　　　c[i] = (p[i].constructor === Array) ? [] : {};
+　　　　　　deepCopy(p[i], c[i]);
+　　　　} else {
+　　　　　　　c[i] = p[i];
+　　　　}
+　　}
+　　return c;
+}
+var Doctor = deepCopy(Chinese);
+Chinese.birthPlaces = ['北京','上海','香港'];
+Doctor.birthPlaces.push('厦门');
+console.log(Doctor.birthPlaces); //北京, 上海, 香港, 厦门
+console.log(Chinese.birthPlaces); //北京, 上海, 香港
+```
+目前，jQuery库使用的就是这种继承方法。
+
+## **感谢链接**
+[Javascript 面向对象编程](http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_encapsulation.html)
