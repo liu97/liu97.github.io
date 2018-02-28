@@ -128,3 +128,4 @@ function extend2(Child, Parent) {
 　　}
 　　c.uber = p;
 }
+```
