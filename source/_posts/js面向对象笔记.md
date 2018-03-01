@@ -191,5 +191,32 @@ console.log(Chinese.birthPlaces); //北京, 上海, 香港
 ```
 目前，jQuery库使用的就是这种继承方法。
 
+## 4.class继承
+
+新的关键字class从ES6开始正式被引入到JavaScript中。class的目的就是让定义类更简单。class的定义包含了构造函数constructor和定义在原型对象上的函数hello()（注意没有function关键字），这样就避免了Student.prototype.hello = function () {...}这样分散的代码。
+
+```javascript
+class Student{
+	constructor(name){
+		this.name = name;
+	}
+	hello(){
+		console.log("hello");
+	}
+}
+let std1 = new Student("xiaoming");
+let std2 = new Student("lining");
+console.log(std1.hello == std2.hello); //true
+class PrimaryStudent extend Student{
+	constructor(name,grade){
+		super(name);
+		this.grade = grade;
+	}
+	myGrade(){
+		return this.grade;
+	}
+}
+```
+
 ## **感谢链接**
 [Javascript 面向对象编程](http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_encapsulation.html)
