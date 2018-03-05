@@ -71,3 +71,4 @@ console.log(a[2]()); //3
 ## 感谢链接
 [廖雪峰的官方网站](https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/00143449934543461c9d5dfeeb848f5b72bd012e1113d15000#0)
 [如何才能通俗易懂的解释javascript里面的‘闭包’](https://www.zhihu.com/question/34547104)
+[阮一峰ECMAScript 6 入门](http://es6.ruanyifeng.com/#docs/let)
