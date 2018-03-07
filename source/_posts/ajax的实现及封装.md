@@ -77,11 +77,13 @@ var url = "example.php";
 url = addURLParam(url, "name", "liu97");
 var xhr = createXHR();
 xhr.onreadystatechange = function(){
-	if((xhr.status >=200 && xhr.status< 300) || xhr.status == 304){
-		alert(xhr.responseText);
-	}
-	else{
-		alert("Request was unsuccessful: "+xhr.status);
+	if(xhr.readystate == 4){
+		if((xhr.status >=200 && xhr.status< 300) || xhr.status == 304){
+			alert(xhr.responseText);
+		}
+		else{
+			alert("Request was unsuccessful: "+xhr.status);
+		}
 	}
 }
 xhr.open("get",url,true);
@@ -93,11 +95,13 @@ POST请求
 ```javascript
 var xhr = createXHR();
 xhr.onreadystatechange = function(){
-	if((xhr.status >=200 && xhr.status< 300) || xhr.status == 304){
-		alert(xhr.responseText);
-	}
-	else{
-		alert("Request was unsuccessful: "+xhr.status);
+	if(xhr.readystate == 4){
+		if((xhr.status >=200 && xhr.status< 300) || xhr.status == 304){
+			alert(xhr.responseText);
+		}
+		else{
+			alert("Request was unsuccessful: "+xhr.status);
+		}
 	}
 }
 xhr.open("post","example.php",true);
