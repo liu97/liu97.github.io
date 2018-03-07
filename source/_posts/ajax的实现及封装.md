@@ -45,8 +45,8 @@ string：仅用于 POST 请求
 获取XMLHttpRequest对象
 ```javascript
 function createXHR(){
-	if(typeof XMLHTTPRequest != "undefined"){ //支持XMLHTTPRequest
-		return new XMLHTTPRequest();
+	if(typeof XMLHttpRequest != "undefined"){ //支持XMLHttpRequest
+		return new XMLHttpRequest();
 	}
 	else if(typeof ActiveXObject != "undefined"){ //支持ActiveXObject
 		var versions = ["MSXML2.XMLHttp.6.0","MSXML2.XMLHttp.3.0","MSXML2.XMLHttp"], i , len;
@@ -114,8 +114,8 @@ xhr.send(new FormData(form));
 ```javascript
 var $={
 	createXHR:function(){
-		if(typeof XMLHTTPRequest != "undefined"){ //支持XMLHTTPRequest
-			return new XMLHTTPRequest();
+		if(typeof XMLHttpRequest != "undefined"){ //支持XMLHttpRequest
+			return new XMLHttpRequest();
 		}
 		else if(typeof ActiveXObject != "undefined"){ //支持ActiveXObject
 			var versions = ["MSXML2.XMLHttp.6.0","MSXML2.XMLHttp.3.0","MSXML2.XMLHttp"], i , len;
