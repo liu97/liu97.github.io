@@ -42,6 +42,7 @@ string：仅用于 POST 请求
 
 ## AJAX实现
 前面说那么多，新手看的可能会有点晕，下面就是AJAX的代码实现：
+获取XMLHttpRequest对象
 ```javascript
 function createXHR(){
 	if(typeof XMLHTTPRequest != "undefined"){ //支持XMLHTTPRequest
