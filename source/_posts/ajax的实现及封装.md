@@ -215,7 +215,7 @@ $.ajax({
     }
 });
 ```
-[跨域请求戳阮一峰的文章](http://www.ruanyifeng.com/blog/2016/04/cors.html)
+[跨域请求 戳阮一峰老师的文章](http://www.ruanyifeng.com/blog/2016/04/cors.html)
 ## 感谢链接
 [AJAX的实现原理以及封装](http://blog.csdn.net/u011032902/article/details/54728710)
 [谈谈Ajax原理实现过程](http://www.jb51.net/article/74357.htm)
