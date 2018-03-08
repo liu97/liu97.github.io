@@ -77,7 +77,7 @@ var url = "example.php";
 url = addURLParam(url, "name", "liu97");
 var xhr = createXHR();
 xhr.onreadystatechange = function(){
-	if(xhr.readystate == 4){
+	if(xhr.readyState == 4){
 		if((xhr.status >=200 && xhr.status< 300) || xhr.status == 304){
 			alert(xhr.responseText);
 		}
@@ -95,7 +95,7 @@ POST请求
 ```javascript
 var xhr = createXHR();
 xhr.onreadystatechange = function(){
-	if(xhr.readystate == 4){
+	if(xhr.readyState == 4){
 		if((xhr.status >=200 && xhr.status< 300) || xhr.status == 304){
 			alert(xhr.responseText);
 		}
