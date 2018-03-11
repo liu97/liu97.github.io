@@ -91,11 +91,11 @@ share_jia: true
 disqus: false
 
 #5、Gitment
-gitment_owner: liu97      #你的 GitHub ID
-gitment_repo: 'liu97.github.io'          #存储评论的 repo
-gitment_oauth:
-  client_id: 'cf4e09699c340cde2938'           #client ID
-  client_secret: 'd4b6dbc88f52c96c47817fc707c1614fe55fdeba'       #client secret
+# gitment_owner: liu97      #你的 GitHub ID
+# gitment_repo: 'liu97.github.io'          #存储评论的 repo
+# gitment_oauth:
+#   client_id: 'cf4e09699c340cde2938'           #client ID
+#   client_secret: 'd4b6dbc88f52c96c47817fc707c1614fe55fdeba'       #client secret
 
 #uyan: '2158994'
 
