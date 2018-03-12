@@ -1,5 +1,6 @@
 ---
 title: js事件模型系列知识(一)
+date: 2018-3-11 15:15:03
 categories: Blogs
 tags: [js]
 ---

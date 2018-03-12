@@ -1,5 +1,6 @@
 ---
 title: js高阶函数
+date: 2018-3-5 15:15:03
 categories: Blogs
 tags: [js]
 ---

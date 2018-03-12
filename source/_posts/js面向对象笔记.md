@@ -1,5 +1,6 @@
 ---
 title: js面向对象笔记
+date: 2018-2-27 15:15:03
 categories: Blogs
 tags: [js]
 ---
