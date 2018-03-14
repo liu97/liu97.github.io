@@ -5,6 +5,7 @@ git  commit  -am "Update Docs"
 echo -e "\033[32;49;1m 提交成功，正在推送至远程仓库...\033[39;49;0m"
 git  push origin blog-source
 echo -e  "\033[32;49;1m 源文件推送成功...\033[39;49;0m"
+hexo clean
 echo  -e  "\033[32;49;1m 正在生成静态页面...\033[39;49;0m"
 hexo g
 echo -e "\033[32;49;1m 正在推送静态页面...\033[39;49;0m"
