@@ -1,5 +1,5 @@
 ---
-title: 浅谈cookie、localStorage与sessionStorage
+title: 浅谈cookie、localStorage与sessionStorage(转载)
 date: 2018-03-17 20:31:10
 categories: Blogs
 tags: [js,html5]
