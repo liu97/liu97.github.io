@@ -60,6 +60,7 @@ function setCookie(name,value,expires,path,domain,secure){
 ```
 一个信息设置比较完整的cookie：
 > document.cookie = "cookieName=mader; expires=Fri, 31 Dec 2017 15:59:59 GMT; path=/mydir; domain=cnblogs.com; max-age=3600; secure=true";
+
 **删除cookie**
 > 输入参数为name、path、domain 这3个是唯一标识cookie的,将max-age设置为0，就可以立即删除了.
 
