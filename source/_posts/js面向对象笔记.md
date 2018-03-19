@@ -20,6 +20,8 @@ console.log(cat1.constructor == Cat) // true
 ```
 > 其实这里是有问题的，cat1.constructor == Cat返回为true的原因是：cat1并没有constructor属性，但它的原型链Cat.prototype上有constructor属性且指向Cat构造函数。当我们访问cat1.constructor时它自身没有就往原型链上找，一找就找到了Cat.prototype，于是cat1.constructor == Cat返回true。
 
+![有图为证](/img/js面向对象/1.png)
+
 **二、构造函数有prototype属性，指向一个对象，这个对象的所有属性和方法都会被构造函数的实例继承**
 ```javascript
 Cat.prototype.type = "猫科动物";
