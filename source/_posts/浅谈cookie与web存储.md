@@ -5,6 +5,7 @@ categories: Blogs
 tags: [js,html5]
 ---
 Cookie的作用是与服务器进行交互，作为HTTP规范的一部分而存在，而Web Storage仅仅是为了在本地“存储”数据而生<!--more-->
+[转载自这里](https://segmentfault.com/a/1190000010400892)
 ## cookie
 **了解cookie**
 cookie 是存储于访问者的计算机中的变量。每当同一台计算机通过浏览器请求某个页面时，就会发送这个 cookie。你可以使用 JavaScript 来创建和取回 cookie 的值。它的主要用途有保存登录信息，比如你登录某个网站市场可以看到“记住密码”，这通常就是通过在 Cookie 中存入一段辨别用户身份的数据来实现的。
