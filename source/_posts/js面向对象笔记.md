@@ -5,8 +5,10 @@ categories: Blogs
 tags: [js]
 ---
 在学习js面向对象时，每次学了不运用，不过多久就会忘，所以今天跟着阮一峰老师的理解记下笔记，以下为学习时自己的理解。<!--more-->
+
 ## 1.封装
-**一、构造函数的实例对象的constructor指向构造函数	**
+
+**一、构造函数的实例对象的constructor指向构造函数**
 ```javascript
 function Cat(name,color){
 	this.name=name;
@@ -16,6 +18,7 @@ let cat1 = new Cat('tom' , 'orange');
 let cat2 = new Cat('jack' , 'black');
 console.log(cat1.constructor == Cat) // true
 ```
+> 其实这里是有问题的，cat1.constructor == Cat返回为true的原因是：cat1并没有constructor属性，但它的原型链Cat.prototype上有constructor属性且指向Cat构造函数。当我们访问cat1.constructor时它自身没有就往原型链上找，一找就找到了Cat.prototype，于是cat1.constructor == Cat返回true。
 **二、构造函数有prototype属性，指向一个对象，这个对象的所有属性和方法都会被构造函数的实例继承**
 ```javascript
 Cat.prototype.type = "猫科动物";
