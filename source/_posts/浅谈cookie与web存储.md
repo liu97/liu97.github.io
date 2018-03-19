@@ -22,6 +22,7 @@ cookie 是存储于访问者的计算机中的变量。每当同一台计算机�
 * 域：cookie对于哪个域是有效的。如果设置为“.google.com”，则所有以“google.com”结尾的域名都可以访问该Cookie。注意第一个字符必须为“.”。如果没有明确设定，那么这个域会被认作来自设置cookie的那个域。
 * 路径：对于指定域中的那个路径，应该向服务器发送cookie。如果设置为“/sessionWeb/”，则只有contextPath为“/sessionWeb”的程序可以访问该Cookie。如果设置为“/”，则本域名下contextPath都可以访问该Cookie。注意最后一个字符必须为“/”。
 * 失效时间：表示cookie何时应该被删除的时间戳（也就是，何时应该停止向服务器发送这个cookie）。默认情况下，浏览器会话结束时即将所有cookie删除；不过也可以自己设置删除时间。这个值是个GMT格式的日期（Wdy,DD-Mon-YYYY HH:MM:SSGMT），用于指定应该删除cookie的准确时间。因此，cookie可在浏览器关闭后依然保存在用户的机器上。如果你设置的失效日期是个以前的时间，则cookie会被立刻删除。
+* max-age: 与expires作用相同，用来告诉浏览器此cookie多久过期（单位是秒），而不是一个固定的时间点。正常情况下，max-age的优先级高于expires。
 * 安全标志：指定后，cookie只有在使用SSL连接的时候才发送到服务器。例如，cookie信息只能发送给https://www.baidu.com, 而http://www.baidu.com 的请求则不能发送cookie。
 
 **cookie的应用场景**
@@ -57,6 +58,8 @@ function setCookie(name,value,expires,path,domain,secure){
     document.cookie = cookie;
 }
 ```
+一个信息设置比较完整的cookie：
+> document.cookie = "cookieName=mader; expires=Fri, 31 Dec 2017 15:59:59 GMT; path=/mydir; domain=cnblogs.com; max-age=3600; secure=true";
 **删除cookie**
 > 输入参数为name、path、domain 这3个是唯一标识cookie的,将max-age设置为0，就可以立即删除了.
 
