@@ -56,7 +56,8 @@ tags: [css]
 > 1、margin:auto;居中的要求是居中容器需要固定宽度和高度; 
 > 2、text-align:center;对行内元素水平居中
 > 3、父元素position:relative; top:50%;left:50%;子元素position:relative;top:-50%;left:50%;水平垂直居中。
-> 4、父元素position:relative;子元素position:relative;top:50%;left:50%;margin-left:-(宽度值/2);margin-top:-(高度值/2)。需要确定居中容器的宽高。
+> 4、父元素display:flex;justify-content:centr;align-items:center;单元素水平垂直居中，但有兼容性问题。
+> 5、父元素position:relative;子元素position:relative;top:50%;left:50%;margin-left:-(宽度值/2);margin-top:-(高度值/2)。需要确定居中容器的宽高。
 
 还有许多元素居中的方法，每个居中方式都有优点和缺点，一种居中方式难以满足所有的居中情况。下面是我碰到的挺好的得居中方式(兼容ie6)，不定宽高水平垂直居中：
 ```
