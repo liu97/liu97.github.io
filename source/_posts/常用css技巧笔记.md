@@ -31,7 +31,7 @@ tags: [css]
 </body>
 ```
 效果图如下：
-[/img/常用css笔记/1.png]
+![div错位](/img/常用css笔记/1.png)
 为什么会出现这种情况呢？因为div1里没有文字，而div2中有文字，div2的文字位置会根据baseline确定。咦~，baseline又是什么东西？下面简单介绍一下baseline的确定规则：
 > 1、inline-table元素的baseline是它的table第一行的baseline。
 2、父元素【line box】的baseline是最后一个inline box 的baseline。
