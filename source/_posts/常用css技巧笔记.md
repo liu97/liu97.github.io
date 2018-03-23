@@ -58,7 +58,7 @@ tags: [css]
 > 3、父元素position:relative; top:50%;left:50%;子元素position:relative;top:-50%;left:50%;水平垂直居中。
 > 4、父元素position:relative;子元素position:relative;top:50%;left:50%;margin-left:-(宽度值/2);margin-top:-(高度值/2)。需要确定居中容器的宽高。
 
-还有许多元素居中的方法，每个居中方式都有优点和确定，一种居中方式难以满足所有的居中要求。下面是我碰到的挺好的得居中方式(兼容ie6)，不定宽高水平垂直居中：
+还有许多元素居中的方法，每个居中方式都有优点和缺点，一种居中方式难以满足所有的居中情况。下面是我碰到的挺好的得居中方式(兼容ie6)，不定宽高水平垂直居中：
 ```
 <style type="text/css">
     * { margin:0; padding:0; list-style:none;  }
