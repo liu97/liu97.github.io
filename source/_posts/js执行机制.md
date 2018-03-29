@@ -6,7 +6,7 @@ tags: [js]
 ---
 前段时间看见一篇关于[JavaScript执行机制](https://juejin.im/post/59e85eebf265da430d571f89)的文章,看完仔细回味后感觉受益匪浅，于是想借着文章作者的思路，简单的介绍一下javascript执行机制，想仔细的了解就戳前面那篇文章。<!--more-->
 ## 前言
-&ensp;&ensp;&ensp;&ensp;javascript是一门单线程语言是众所周知的，所谓的异步、Web-Worker都是模拟出来的。因为是单线程啊，代码也需要排队，那这样的话是不是可以猜想javascript代码出现的越早就执行的越早呢？其实远不是这么简单，单线程是真的，排队也是真的，但是不一定按代码出现的顺序执行。那javascript的执行顺序到底是什么呢？
+&ensp;&ensp;&ensp;&ensp;javascript是一门单线程语言是众所周知的，所谓的异步、Web-Worker都是模拟出来的（HTML5提出Web Worker标准，允许JavaScript脚本创建多个线程，但是子线程完全受主线程控制，且不得操作DOM。所以，这个新标准并没有改变JavaScript单线程的本质。）。因为是单线程啊，代码也需要排队，那这样的话是不是可以猜想javascript代码出现的越早就执行的越早呢？其实远不是这么简单，单线程是真的，排队也是真的，但是不一定按代码出现的顺序执行。那javascript的执行顺序到底是什么呢？
 ## javascript的单线程
 &ensp;&ensp;&ensp;&ensp;以前一直依着javascript是代码出现顺序执行的理念，给出以下的代码：
 ```javascript
