@@ -99,3 +99,115 @@ tags: [css]
 </div>
 </body>
 ```
+
+## CSS 实现隐藏滚动条同时又可以滚动
+有时候会有这种情况，我想在一个界面里实现溢出滚动，但是又感觉滚动条影响界面美观，想实现一个可以滚动但是不出现滚动条的样式，这时候就可以看看下面的情况了。
+假设我们有这样一个界面：
+```
+<style>
+    .outer-container {
+        overflow: auto;
+        background: pink; 
+        width: 200px;
+        height: 200px;
+    }
+    .content{
+        background: yellow;
+        width: 8%;
+    }
+</style>
+<div class="outer-container">
+    <div class="content">
+        ......
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        ......
+    </div>
+</div>
+```
+溢出有滚动条,界面效果如下：
+![溢出有滚动条](/img/常用css笔记/2.png)
+我想实现界面只有outer-container的大小，如果content里的内容溢出，则可在outer-container里面滚动且不出现滚动条，在chrome里面有这样一个属性：outer-container::-webkit-scrollbar { display: none; }，只要设置了这个属性,滚动条就消失了。
+```
+<style>
+    .outer-container {
+        overflow: auto;
+        background: pink; 
+        width: 200px;
+        height: 200px;
+    }
+    .content{
+        width: 8%;
+    }
+    .outer-container::-webkit-scrollbar { 
+        display: none; 
+    }
+</style>
+```
+溢出可以滚动且无滚动条,界面效果如下：
+![溢出无滚动条](/img/常用css笔记/3.png)
+哇，感觉很爽，但是这个世界还有非chrome浏览器啊，比如ie。。。那如果ie想实现这个功能该怎么办，别急，下面就来了。
+为了实现无滚动条，需要在.outer-container和.content之间再加一层.inner-container。具体看下面代码：
+```
+<style>
+    .outer-container {
+        overflow: hidden; /*最外一层设置溢出隐藏*/
+        background: pink; 
+        width: 200px;
+        height: 200px;
+    }
+    .inner-container {/*中间一层设置滚动条而我们看不见*/
+        overflow-x: hidden;
+        overflow-y: scroll;/*y方向设置滚动条*/
+        width: 200%; /*设置宽度超过最外一层*/
+        height: 100%;/*高度小于或等于最外一层*/
+    }
+</style>
+<div class="outer-container">
+    <div class="inner-container">
+        <div class="content">
+        ......
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        ......
+        </div>
+    </div>
+</div>
+```
+这样就可以完美的骗过我们的眼睛，没有滚动条啦！
