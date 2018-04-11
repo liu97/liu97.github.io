@@ -161,7 +161,7 @@ var $={
         /*5.获取请求传递的回调函数*/
         var success=obj.success || function(){};
         
-        /*es6语法obj = Object.assign({type:"get",url:"location.pathname",data:"{}"})*/
+        /*es6语法obj = Object.assign({type:"get",url:"location.pathname",data:"{}"},obj)*/
 
         /*6:开始发起异步请求*/
         /*6.1:创建异步对象*/
