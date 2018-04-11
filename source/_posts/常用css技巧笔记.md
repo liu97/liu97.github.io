@@ -55,7 +55,7 @@ tags: [css]
 在css界，居中有许多方法，各种方式适用于不同的情况，例如：
 > 1、margin:auto;居中的要求是居中容器需要固定宽度和高度; 
 > 2、text-align:center;对行内元素水平居中
-> 3、父元素position:relative; top:50%;left:50%;子元素position:relative;top:-50%;left:50%;水平垂直居中。
+> 3、父元素position:relative; top:50%;left:50%;子元素position:relative;top:-50%;left:-50%;水平垂直居中。
 > 4、父元素display:flex;justify-content:centr;align-items:center;单元素水平垂直居中，但有兼容性问题。
 > 5、父元素position:relative;子元素position:relative;top:50%;left:50%;margin-left:-(宽度值/2);margin-top:-(高度值/2)。需要确定居中容器的宽高。
 
