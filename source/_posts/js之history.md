@@ -40,7 +40,7 @@ url : 这个参数提供了新历史纪录的地址。请注意，浏览器在�
 
 1.history的用的不多，但是在某些特殊页面需要后退或者前进页面，也就是history的go、back、forward的运用
 2.有的时候需要阻止用户对页面的前进后退或者阻止锚点会用到onpopstate、onhashchange
-3.一开始我会觉得pushState和replaceState好像是个鸡肋，没啥乱用，但是当我看到了这篇文章[ajax与HTML5 history pushState/replaceState实例](http://www.zhangxinxu.com/wordpress/2013/06/html5-history-api-pushstate-replacestate-ajax/)。/笑脸/，瞬间感觉很屌。
+3.一开始我会觉得pushState和replaceState好像是个鸡肋，没啥卵用，但是当我看到了这篇文章[ajax与HTML5 history pushState/replaceState实例](http://www.zhangxinxu.com/wordpress/2013/06/html5-history-api-pushstate-replacestate-ajax/)。/笑脸/，瞬间感觉很屌。
 
 ## 感谢链接
 [window.history的跳转实质－HTML5 history API 解析](https://www.cnblogs.com/hity-tt/p/7059192.html)
