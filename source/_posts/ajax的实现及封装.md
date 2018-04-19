@@ -1,6 +1,6 @@
 ---
 title: js之ajax的实现及封装
-date: 2018-3-8 15:15:03
+date: 2018-3-7 15:15:03
 categories: Blogs
 tags: [js,ajax]
 ---
