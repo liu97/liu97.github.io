@@ -256,3 +256,22 @@ taskA.bind(obj)()
 可能有人会说，不是说Arrow Function中的this是定义的时候就决定了么，怎么现在又变成了运行的时候决定了呢。
 Arrow Function中的this是定义的时候就决定的，这句话是对的。
 该案例中，Arrow Function中，即arrow_fn的this便是taskA的this，在定义这个arrow_fn时候便决定了，于是又回到了上面说的，taskA是一个普通的函数，普通函数的this是在运行时决定的，而此时由于bind的原因，taskA的this已经变为obj，因此arrow_fnd的this便是obj了。
+
+## jquery中的$(this)与this
+$()生成的是什么呢？实际上$()=jquery()，那么也就是说返回的是一个jquery的对象。
+$(this)是jquery对象，能调用jquery的方法，例如click(), keyup()。
+```javascript
+ $(function () {
+   $('button').click(function () {
+       console.log(this); //this 表示原生的DOM
+       console.log($(this)) //表示当前jquery对象，这里指的是button
+   }) 
+});
+```
+this，表示当前的上下文对象是一个html DOM对象，可以调用html对象所拥有的属性，方法。
+$(this),代表的上下文对象是一个jquery的上下文对象，可以调用jquery的方法和属性值。
+
+## 感谢链接
+[深入理解this机制系列第一篇——this的4种绑定规则](http://www.cnblogs.com/xiaohuochai/p/5735901.html)
+[箭头函数中this的用法](https://github.com/zhengweikeng/blog/blob/master/posts/2016/%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0%E4%B8%ADthis%E7%9A%84%E7%94%A8%E6%B3%95.md)
+[详解js和jquery里的this关键字](https://www.cnblogs.com/chengdabelief/p/6498267.html)
