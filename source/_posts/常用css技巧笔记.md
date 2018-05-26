@@ -32,7 +32,8 @@ tags: [css]
 ```
 效果图如下：
 ![div错位](/img/常用css笔记/1.png)
-为什么会出现这种情况呢？因为div1里没有文字，而div2中有文字，div2的文字位置会根据baseline确定。咦~，baseline又是什么东西？下面简单介绍一下baseline的确定规则：
+
+为什么会出现这种情况呢？因为div1里没有文字，而div2中有文字，div2的文字位置会根据baseline确定。咦，baseline又是什么东西？下面简单介绍一下baseline的确定规则：
 > 1、inline-table元素的baseline是它的table第一行的baseline。
 2、父元素【line box】的baseline是最后一个inline box 的baseline。
 3、inline-flex元素的baseline对齐项目的第一行文字的基线 
@@ -211,3 +212,59 @@ tags: [css]
 </div>
 ```
 这样就可以完美的骗过我们的眼睛，没有滚动条啦！
+
+##Sticky footer布局
+在网页设计中，Sticky footers设计是最古老和最常见的效果之一，大多数人都曾经经历过。它可以概括如下：如果页面内容不够长的时候，页脚块粘贴在视窗底部；如果内容足够长时，页脚块会被内容向下推送，我们看到的效果就如下面两张图这样。这种效果基本是无处不在的，很受欢迎。
+### 实现方式
+**负margin布局**
+```html
+<div class="wrapper clearfix">
+    <div class="content">
+      // 这里是页面内容
+    </div>  
+</div>
+<div class="footer">
+    // 这里是footer的内容
+</div>
+.wrapper {
+    min-height: 100%;
+}
+
+.wrapper .content{
+    padding-bottom: 50px; /* footer区块的高度 */
+}
+
+.footer {
+    position: relative;
+    margin-top: -50px;  /* 使footer区块正好处于content的padding-bottom位置 */
+    height: 50px;
+    clear: both;
+}
+
+.clearfix::after {
+    display: block;
+    content: ".";
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+```
+使用此方法的条件是知道footer的高度，并将.content的padding-bottom设为footer的高度，footer的margin-top设为负高度值。
+**flex布局**
+```html
+<div class="wrapper">
+    <div class="content">这里是主要内容</div>
+    <div class="footer">这是页脚区块</div>  
+</div>
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.content {
+    flex: 1;
+}
+.footer {
+    flex: 0;
+}
+```
