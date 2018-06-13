@@ -26,7 +26,8 @@ history是window对象的属性，它保存着用户上网的历史记录，借�
 采用[蒲公英tt](https://www.cnblogs.com/hity-tt/p/7059192.html)的history栈变更图能很好的展示history的变化：
 ![history栈变化图](/img/js之history/1.png)
 分析下这个history变化图：
-> 1.step1~step4、step8就是history的当前页面在访问记录间的变化
+
+> 1.step1-step4、step8就是history的当前页面在访问记录间的变化
 > 2.step5通过location.href的修改创建一个新的页面记录，需要注意的是修改后url2后面的记录都会被删除，然后再加入location.href的值
 > 3.step6通过pushState方法创建一个新的url记录，其也是清空、再新增记录
 > 4.step9通过replaceState方法修改一个url记录，其不会产生新记录，而是将当前记录进行修改。
