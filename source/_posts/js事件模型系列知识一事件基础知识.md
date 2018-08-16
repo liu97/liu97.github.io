@@ -36,7 +36,7 @@ tags: [js]
 ```
 
 ### 3.DOM2级事件处理程序
-"DOM2级事件"定义了两个方法，用于处理指定和删除事件处理程序的操作：addElementListener()和removeEventListener()。所有DOM节点都包含这两个方法，他们都接受3个参数：盐处理的事件名、作为事件处理程序的函数和一个布尔值。醉的布尔值为true时便是在事件捕获阶段调用事件处理程序函数，为false表示在事件冒泡阶段调用事件处理程序函数。
+"DOM2级事件"定义了两个方法，用于处理指定和删除事件处理程序的操作：addElementListener()和removeEventListener()。所有DOM节点都包含这两个方法，他们都接受3个参数：将要处理的事件名、作为事件处理程序的函数和一个布尔值。最后的布尔值为true时便是在事件捕获阶段调用事件处理程序函数，为false表示在事件冒泡阶段调用事件处理程序函数。
 在按钮上为click事件添加事件处理程序：
 ```javascript
 var btn = document.getElementById("btn");
