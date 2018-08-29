@@ -47,4 +47,13 @@ tags: [webpack,前端]
 
 ![plugins数组存在空字符串](/img/那些年webpack项目探的坑/1.png)
 
-只需将`.babelc`中`plugins`中的空字符串去掉，相应的webpack.config.js中的`plugins`也是一样
+只需将`.babelrc`中`plugins`中的空字符串去掉，相应的webpack.config.js中的`plugins`也是一样
+
+## 不支持修饰器decorator
+![plugins数组存在空字符串](/img/那些年webpack项目探的坑/2.png)
+
+需要安装`transform-decorators-legacy`
+> npm install –save-dev babel-plugin-transform-decorators-legacy
+
+安装完后在.babelrc和webpack.config.js的`plugins`数组填写：
+> "plugins": [ "transform-decorators-legacy" ]
