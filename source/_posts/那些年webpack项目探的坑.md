@@ -12,7 +12,7 @@ tags: [webpack,前端]
 **babel常见转义器的功能**
 > babel-core: 如果某些代码需要调用Babel的API进行转码，就要使用`babel-core`模块
 > babel-loader: 执行转义的核心包
-> babel-preset-env: 包括了所有的`babel-preset-es`和`babel-preset-stag`，但是不包括`babel-polyfill`和`babel-react` 
+> babel-preset-env: 包括了所有的`babel-preset-es`和`babel-preset-stage-4`，但是不包括`babel-polyfill`和`babel-react` 
 > babel-polyfill: 转换`es6`新的API，`babel`默认只转换语法,而不转换新的API
 > babel-preset-react: 转义`react`的`jsx`语法
 > babel-plugin-react-transform: 动态修改`Component`，代替`react-hot-loader`的插件
@@ -47,7 +47,7 @@ tags: [webpack,前端]
 
 ![plugins数组存在空字符串](/img/那些年webpack项目探的坑/1.png)
 
-只需将`.babelrc`中`plugins`中的空字符串去掉，相应的webpack.config.js中的`plugins`也是一样
+只需将`.babelrc`中`plugins`中的空字符串去掉
 
 ## 不支持修饰器decorator
 ![plugins数组存在空字符串](/img/那些年webpack项目探的坑/2.png)
@@ -55,5 +55,28 @@ tags: [webpack,前端]
 需要安装`transform-decorators-legacy`
 > npm install –save-dev babel-plugin-transform-decorators-legacy
 
-安装完后在.babelrc和webpack.config.js的`plugins`数组填写：
+安装完后在.babelrc的`plugins`数组填写：
 > "plugins": [ "transform-decorators-legacy" ]
+
+## react.js内使用箭头函数报错
+![plugins数组存在空字符串](/img/那些年webpack项目探的坑/3.png)
+
+由于babel-preset-env只包含了babel-preset-env和babel-preset-stage-4,而要stage-2支持该语法，索性就装个babel-preset-stage-0解决问题。
+> npm install –save-dev babel-preset-stage-0
+
+然后再`.babelrc`的`presets`的数组里添加`stage-0`。
+```
+"presets": [
+  "react",
+  ["env", {
+    "modules": false,
+    "targets": {
+      "browsers": ["last 2 versions", "ie >= 9"]
+    },
+    "useBuiltIns": true,
+    "debug": true
+  }],
+  "stage-0"
+],
+```
+*注意： stage-0应该写在env后面*
