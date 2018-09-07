@@ -113,24 +113,27 @@ xhr.send(new FormData(form));
 ## AJAX封装
 上面是分了get和post请求，每次请求就要写一次代码，索性来个封装，类似于jquery的$.ajax.
 ```javascript
-var $ = {
+let $ = {
     getParmeter : function (data) {
-        var getData = "";
+        if(Object.keys(data).length == 0){
+            return '';
+        }
+        let getData = "";
         for(let name in data){
             getData += name +"="+ data[name]+"&"
         }
         return getData.slice(0, -1);
-    }
+    },
     ajax : function(obj){
-        obj = Object.assign({type:"get",url:"location.pathname",data:"{}",success:function(){},fail:function(){}},obj)
-        let obj.data = getParmeter(obj.data);
+        obj = Object.assign({type:"get",url:"location.pathname",data:{},success:function(){},fail:function(){}},obj)
+        obj.data = this.getParmeter(obj.data);
 
-        var xhr = XMLHttpRequest ? new XMLHttpRequest : new ActiveXObject("Microsoft.XMLHttp");
+        let xhr = XMLHttpRequest ? new XMLHttpRequest : new ActiveXObject("Microsoft.XMLHttp");
         xhr.onreadystatechange = function(){
             if(xhr.readyState == 4){
                 if((xhr.status >= 200 && xhr.status<300) || xhr.status == 304){
                     let result=null;
-                    var grc=xhr.getResponseHeader("Content-Type");
+                    let grc=xhr.getResponseHeader("Content-Type");
                     if(grc.indexOf("json") != -1){
                         result=JSON.parse(xhr.responseText);
                     }
@@ -140,10 +143,10 @@ var $ = {
                     else{
                         result=xhr.responseText;
                     }
-                    success(result);
+                    obj.success(result);
                 }
                 else{
-                    fail(xhr.status)
+                    obj.fail(xhr.status)
                 }
             }
         }
@@ -157,7 +160,7 @@ var $ = {
         }
         xhr.send(obj.data);
     }
-}
+};
 
 ```
 调用方式与jquery类似：
