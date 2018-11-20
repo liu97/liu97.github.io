@@ -80,3 +80,33 @@ tags: [webpack,前端]
 ],
 ```
 *注意： stage-0应该写在env后面*
+
+## css和less打包报错
+> ERROR in ./app/index.less ReferenceError: window is not defined
+
+![plugins数组存在空字符串](/img/那些年webpack项目探的坑/4.png)
+使用webpack4的extract-text-webpack-plugin插件提取单独打包css文件时，use里的顺序问题,只需按下面的顺序即可：
+```
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+module.exports = {
+   module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use:["style-loader",MiniCssExtractPlugin.loader,"css-loader","postcss-loader"],
+      },
+      {
+        test: /\.less$/,
+        use:["style-loader",MiniCssExtractPlugin.loader,"css-loader","postcss-loader","less-loader"],
+      }
+    ]
+  plugins: [
+    new MiniCssExtractPlugin({
+        // Options similar to the same options in webpackOptions.output
+        // both options are optional
+        filename: "[name].[chunkhash:8].css",
+        chunkFilename: "[id].css"
+    })
+    ],
+}
+```
