@@ -85,6 +85,7 @@ tags: [webpack,前端]
 > ERROR in ./app/index.less ReferenceError: window is not defined
 
 ![plugins数组存在空字符串](/img/那些年webpack项目探的坑/4.png)
+
 使用webpack4的extract-text-webpack-plugin插件提取单独打包css文件时，use里的顺序问题,只需按下面的顺序即可：
 ```
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
