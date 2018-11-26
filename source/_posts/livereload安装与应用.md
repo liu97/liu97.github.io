@@ -4,7 +4,7 @@ date: 2017-05-04 09:44:12
 categories: Blogs
 tags: [livereload]
 ---
-在上次搭建博客的时候在知乎上找到一个神器livereload。宣传一下Sublime text3是非常好用的编辑器。配合LiveReload插件可以在浏览器中实时预览，也就是说写完html/css/js等不用再到浏览器里按F5啦，在Ctrl+S时浏览器会自动刷新，是不是想想都很爽，多屏的同学更爽了~~~<!--more-->
+在上次搭建博客的时候在知乎上找到一个神器livereload。宣传一下Sublime text3是非常好用的编辑器。配合LiveReload插件可以在浏览器中实时预览，也就是说写完html/css/js等不用再到浏览器里按F5啦，在Ctrl+S时浏览器会自动刷新，是不是想想都很爽，多屏的同学更爽了。<!--more-->
 
 ----------
 
