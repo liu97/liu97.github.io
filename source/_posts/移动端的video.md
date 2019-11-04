@@ -83,6 +83,17 @@ tags: [移动端,video,canvas]
 ### 浏览器不能使用canvas + video
 &emsp;&emsp;canvas + video很好的解决的去除video默认控件的问题，but新的问题出现了，有的浏览器不支持canvas + video。到了这里恩~hhh，我也不知道怎么办啦，暂时先放着，最理想的解决办法就是所有浏览器都支持自定义控件，那就慢慢等吧~。
 
+## 补充
+近段时间又接了一个和移动端的video相关的需求，遇到了两个问题：
+* video会被部分移动端浏览器提到最高层，导致video上不能有浮层，比如modal等等
+* video的放大过渡动画错乱
+
+第一个问题的解决办法是当弹起浮层是隐藏video：`display: none;`这里使用display而不是使用visibility的原因是使用visibility不起作用，针对QQ、微信内置浏览器有一个属性: `x5-video-player-type="h5" /*启用H5播放器,是wechat安卓版特性*/`;
+第二个问题的具体情况是：当video标签设置css3放大过渡属性时，会出现一个正常的动画轨迹和另外一个异常的动画闪现，导致过渡动画看起来很奇怪，经过反复研究发现是因为video标签设置了poster属性导致的。当取消poster属性后，上述有讲过使用图片模拟poster，亦如上所述：`当点击播放后隐藏掉该poster遮罩`，点击播放后直接隐藏poster模拟图片会导致video会黑屏闪现一下，出现黑屏闪现的原因是：点击播放后video在加载数据，直至video可以正常播放才会出现画面。解决办法是，监听video的`playing`事件而不是监听`play`事件来隐藏poster：
+```javascript
+video.addEventListener('playing', this.hiddenPoster);
+```
+
 ## 最后
 &emsp;&emsp;本次项目学习了很多，后面还会继续记录学习的知识，这里放一下本次项目所做的测试结果(不一定与本文章有关)，测试耗费了我好多天啊啊啊。测试环境: android 7; ios 11。
 [进出页面触发函数支持情况](/doc/移动端的video/函数支持情况.docx)
