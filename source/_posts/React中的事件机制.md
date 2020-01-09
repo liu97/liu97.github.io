@@ -146,5 +146,5 @@ render() {
 
 ## 感谢链接
 
-[长文慎入】一文吃透 react 事件机制原理](https://juejin.im/post/5d7678b06fb9a06b2b47a03c)
+[【长文慎入】一文吃透 react 事件机制原理](https://juejin.im/post/5d7678b06fb9a06b2b47a03c)
 [React 合成事件](https://happy-alex.github.io/js/react/syntheticEvent/)
