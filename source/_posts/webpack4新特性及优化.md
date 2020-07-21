@@ -10,7 +10,7 @@ tags: [webpack]
 
 本着能站在巨人肩膀上就站在巨人肩膀上的原则，为了避免繁杂的webpack配置，我们有Vue CLI和Create React App等优秀的脚手架工具帮助我们快速搭建项目。
 
-在大多数项目中我们都可以通过脚手架完美的进行搭建项目，但是随着业务类型的变化，我们可能需要对项目结构、打包性能优化等等做一些改变这时候这些通用的脚手架可能就不太适合，所以我们需要了解webpack，编写出自己的一套webpack配置，需要的情况下搭建一套[自己的脚手架](https://yeoman.io/learning/index.html)。
+在大多数项目中我们都可以通过脚手架完美的进行搭建项目，但是随着业务类型的变化，我们可能需要对项目结构、打包性能优化等等做一些改变这时候这些通用的脚手架可能就不太适合，所以我们需要了解webpack，编写出自己的一套webpack配置，需要的情况下搭建一套[自己的脚手架](https://yeoman.io/learning/index.html)。<!--more-->
 
 目前`webpack5`还在[beta](https://github.com/webpack/webpack/tags)阶段，所以这里介绍`webpack4`。
 
@@ -183,6 +183,40 @@ module.exports = {
 }
 ```
 
+### 2、url-loader进行图片、字体文件处理
+
+1、安装依赖:
+
+```javascript
+npm install url-loader -D
+```
+
+2、在 webpack.config.js 中进行配置:
+```javascript
+module.exports = {
+    //...
+    modules: {
+        rules: [
+            {
+                test: /\.(png|jpg|gif|jpeg|webp|svg|eot|ttf|woff|woff2)$/,
+                use: [
+                {
+                    loader: 'url-loader',
+                    options: {
+                        limit: 10240, // 10K
+                        esModule: false, // 否则，<img src={require('XXX.jpg')} /> 会出现 <img src=[Module Object] />
+                        name: '[name]_[chunkhash:8].[ext]',
+                        outputPath: 'assets',
+                    }
+                }
+                ],
+                exclude: /node_modules/,
+            }
+        ]
+    }
+}
+```
+
 ### 2、前端模拟数据
 1、安装依赖:
 
@@ -243,3 +277,24 @@ module.exports = {
 使用`npm run build`构建后，打开`http://127.0.0.1:8888/`,可以看到像下面一样的打包结构图：
 ![打包结构图](/img/webpack4新特性及优化/morenfenge.png)
 
+### 4、修改打包上传CDN流程
+目前咱们的hui等等一些React项目上传CDN的流程是：运行一个NodeJS程序 => 删除dist目录 => 运行webpack打包 => 挂载资源 => 上传CDN，这个流程能很好的工作，但是代码有些繁杂，所以我们在做一些简化：
+* 删除dist目录通过上述`clean-webpack-plugin`插件完成
+* 运行webpack打包 和 挂载资源 步骤可以直接通过CLI完成，挂载路径通过`publicPath`配置：
+```javascript
+output: {
+    publicPath: `${cdnProject}-${process.env.NODE_ENV}/`,
+  }
+```
+* 上传CDN不变
+
+所以我们的流程变成了：运行一个shell脚本 => 打包 => 上传CDN。流程控制用一个shell脚本控制：
+```javascript
+env=$1
+
+echo 打包中...
+cross-env NODE_ENV=$env  webpack --config webpack/build.js
+echo 打包完成！
+
+node server/uploadFile.js $env
+```
