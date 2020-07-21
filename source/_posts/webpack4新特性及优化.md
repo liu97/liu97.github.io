@@ -57,7 +57,7 @@ webpack --mode=development
 
 (3) 当我们设置 mode 为 none 是，将不使用任何默认优化选项。
 
-### 插件和优化
+### 4. 插件和优化
 
 在webpack4中新增了 optimization 配置项，一些默认插件由 optimization 配置替代了，如下：
 * CommonsChunkPlugin废弃，由 optimization.splitChunks 和 optimization.runtimeChunk 替代，前者拆分代码，后者提取runtime代码。
