@@ -165,7 +165,7 @@ splitChunks: {
 
 ## 一些有用的webpack用法
 
-### 1、每次打包前清空dist目录
+### 1. 每次打包前清空dist目录
 安装依赖:
 
 ```javascript
@@ -183,7 +183,7 @@ module.exports = {
 }
 ```
 
-### 2、url-loader进行图片、字体文件处理
+### 2. url-loader进行图片、字体文件处理
 
 1、安装依赖:
 
@@ -217,7 +217,7 @@ module.exports = {
 }
 ```
 
-### 2、前端模拟数据
+### 3. 前端模拟数据
 1、安装依赖:
 
 ```javascript
@@ -256,7 +256,7 @@ module.export = {
 }
 ```
 
-### 3、webpack-bundle-analyzer查看打包情况
+### 4. webpack-bundle-analyzer查看打包情况
 1、安装依赖:
 
 ```javascript
@@ -277,7 +277,7 @@ module.exports = {
 使用`npm run build`构建后，打开`http://127.0.0.1:8888/`,可以看到像下面一样的打包结构图：
 ![打包结构图](/img/webpack4新特性及优化/morenfenge.png)
 
-### 4、修改打包上传CDN流程
+### 5. 修改打包上传CDN流程
 目前咱们的hui等等一些React项目上传CDN的流程是：运行一个NodeJS程序 => 删除dist目录 => 运行webpack打包 => 挂载资源 => 上传CDN，这个流程能很好的工作，但是代码有些繁杂，所以我们在做一些简化：
 * 删除dist目录通过上述`clean-webpack-plugin`插件完成
 * 运行webpack打包 和 挂载资源 步骤可以直接通过CLI完成，挂载路径通过`publicPath`配置：
