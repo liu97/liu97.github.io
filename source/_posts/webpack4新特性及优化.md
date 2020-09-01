@@ -45,6 +45,11 @@ webpack --mode=development
 
 在默认情况下webpack会为我们的 module 和 chunk 维护一个自增id的list，当我们在开发的时候，经常会新增删除 module 或者 chunk，这时由于增删的原因导致id需要重排，因为这些id和名字会在最终的输出产物中使用，修改它们会导致文件hash的变化，即使这些文件使用的模块本身并没有改变，导致浏览器的缓存失效。这个时候 NamedModulesPlugin 和 NamedChunksPlugin 就派上了用场，这两个插件会把module的文件路径和chunk名称作为id，保证了不会生成不必要的hash文件。
 
+使用 NamedModulesPlugin 和 NamedChunksPlugin 后：
+![初始图](/img/webpack4新特性及优化/modulechunkid1.png)
+
+![改变module3后](/img/webpack4新特性及优化/modulechunkid2.png)
+
 (2) 当我们把 mode 设置为 production 的时候，会将 DefinePlugin 中 process.env.NODE_ENV 的值设置为 production。并启用以下插件功能：
 
 * FlagDependencyUsagePlugin ：编译时标记被使用的依赖
